@@ -21,9 +21,12 @@ public class SwaggerConfig {
                         .contact(new Contact()
                                 .name("Sizwe Ncikana")
                                 .email("sizwe.ncikana@gomzansi.co.za")
-                                .url("https://www.gomzansi.co.za"))
+                                .url("https://www.gomzansi.co.za")
+                        )
                         .license(new License()
-                                .name("Apache 2.0")));
+                                .name("Apache 2.0")
+                        )
+                );
     }
 
 }
