@@ -14,6 +14,7 @@
         <module>discovery-server</module>
         <module>employee-service</module>
         <module>bus-service</module>
+        <module>routes-service</module>
     </modules>
 
     <groupId>com.tech_centriq</groupId>

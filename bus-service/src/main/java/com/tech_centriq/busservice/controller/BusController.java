@@ -58,6 +58,15 @@ public class BusController {
         return ResponseEntity.ok(responseDTO);
     }
 
+    @Operation(summary = "Update Bus Status")
+    @PatchMapping("/{id}/reactivate")
+    public ResponseEntity<BusResponseDTO> reactivateBus(@PathVariable Long id) {
+
+        return ResponseEntity.ok(
+                busService.reactivateBus(id)
+        );
+    }
+
     @Operation(summary = "Delete Bus")
     @DeleteMapping("/{id}")
     public ResponseEntity<BusResponseDTO> deleteBusById(@PathVariable Long id) {

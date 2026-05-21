@@ -25,10 +25,6 @@ public class BusService {
             throw new RuntimeException("Plate number already exists");
         }
 
-//        if (busRepository.existsByBusNumber(requestDTO.getBusNumber())) {
-//            throw new RuntimeException("Bus number already exists");
-//        }
-
         BusEntity bus = new  BusEntity();
 
         bus.setPlateNumber(requestDTO.getPlateNumber());
@@ -118,6 +114,22 @@ public class BusService {
         BusEntity updatedBus = busRepository.save(existingBus);
 
         return BusResponseDTO.responseDTO(updatedBus);
+    }
+
+    @Transactional
+    public BusResponseDTO reactivateBus(Long id) {
+
+        BusEntity busEntity = busRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Bus not found"));
+
+        if (busEntity.isActive()) {
+            throw new RuntimeException("Bus is already Active");
+        }
+
+        busEntity.setActive(true);
+        busEntity.setUpdatedAt(LocalDateTime.now());
+
+        return BusResponseDTO.responseDTO(busRepository.save(busEntity));
     }
 
     @Transactional
