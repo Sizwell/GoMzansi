@@ -98,6 +98,7 @@ public class RouteService {
             throw new RuntimeException("Route is already Active");
         }
         routeEntity.setIsActive(true);
+        routeEntity.setStatus(RouteStatus.ACTIVE);
         routeEntity.setUpdatedAt(LocalDateTime.now());
 
         return RouteResponseDTO.responseDTO(routeRepository.save(routeEntity));

@@ -106,8 +106,6 @@ public class BusService {
         existingBus.setPlateNumber(requestDTO.getPlateNumber());
         existingBus.setCapacity(requestDTO.getCapacity());
         existingBus.setModel(requestDTO.getModel());
-        existingBus.setStatus(requestDTO.getStatus());
-        existingBus.setActive(requestDTO.getIsActive());
 
         existingBus.setUpdatedAt(LocalDateTime.now());
 
@@ -127,6 +125,7 @@ public class BusService {
         }
 
         busEntity.setActive(true);
+        busEntity.setStatus(BusStatus.ACTIVE);
         busEntity.setUpdatedAt(LocalDateTime.now());
 
         return BusResponseDTO.responseDTO(busRepository.save(busEntity));
@@ -139,6 +138,7 @@ public class BusService {
                 .orElseThrow(() -> new RuntimeException("Bus " + id + " not found"));
 
         busEntity.setActive(false);
+        busEntity.setStatus(BusStatus.OUT_OF_SERVICE);
 
         busEntity.setUpdatedAt(LocalDateTime.now());
 
