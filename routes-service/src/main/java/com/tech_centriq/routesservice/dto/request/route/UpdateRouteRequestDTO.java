@@ -1,6 +1,5 @@
-package com.tech_centriq.routesservice.dto.request;
+package com.tech_centriq.routesservice.dto.request.route;
 
-import com.tech_centriq.routesservice.enums.RouteStatus;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 

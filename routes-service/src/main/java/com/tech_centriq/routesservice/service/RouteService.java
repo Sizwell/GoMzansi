@@ -1,9 +1,9 @@
 package com.tech_centriq.routesservice.service;
 
-import com.tech_centriq.routesservice.dto.request.CreateRouteRequestDTO;
-import com.tech_centriq.routesservice.dto.request.UpdateRouteRequestDTO;
-import com.tech_centriq.routesservice.dto.request.UpdateRouteStatusRequestDTO;
-import com.tech_centriq.routesservice.dto.response.RouteResponseDTO;
+import com.tech_centriq.routesservice.dto.request.route.CreateRouteRequestDTO;
+import com.tech_centriq.routesservice.dto.request.route.UpdateRouteRequestDTO;
+import com.tech_centriq.routesservice.dto.request.route.UpdateRouteStatusRequestDTO;
+import com.tech_centriq.routesservice.dto.response.route.RouteResponseDTO;
 import com.tech_centriq.routesservice.entity.RouteEntity;
 import com.tech_centriq.routesservice.enums.RouteStatus;
 import com.tech_centriq.routesservice.repository.RouteRepository;
@@ -21,6 +21,7 @@ public class RouteService {
 
     private final RouteRepository routeRepository;
 
+    @Transactional
     public RouteResponseDTO createRoute(CreateRouteRequestDTO createRouteRequestDTO) {
 
         String routeCode = generateRouteCode();
@@ -67,6 +68,7 @@ public class RouteService {
         return RouteResponseDTO.responseDTO(routeEntity);
     }
 
+    @Transactional
     public RouteResponseDTO updateRoute(Long id, UpdateRouteRequestDTO updateRouteRequestDTO) {
 
         RouteEntity routeEntity = routeRepository.findById(id)

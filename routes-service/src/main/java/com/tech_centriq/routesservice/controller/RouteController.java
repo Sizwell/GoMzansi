@@ -1,9 +1,9 @@
 package com.tech_centriq.routesservice.controller;
 
-import com.tech_centriq.routesservice.dto.request.CreateRouteRequestDTO;
-import com.tech_centriq.routesservice.dto.request.UpdateRouteRequestDTO;
-import com.tech_centriq.routesservice.dto.request.UpdateRouteStatusRequestDTO;
-import com.tech_centriq.routesservice.dto.response.RouteResponseDTO;
+import com.tech_centriq.routesservice.dto.request.route.CreateRouteRequestDTO;
+import com.tech_centriq.routesservice.dto.request.route.UpdateRouteRequestDTO;
+import com.tech_centriq.routesservice.dto.request.route.UpdateRouteStatusRequestDTO;
+import com.tech_centriq.routesservice.dto.response.route.RouteResponseDTO;
 import com.tech_centriq.routesservice.service.RouteService;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;

@@ -1,4 +1,4 @@
-package com.tech_centriq.routesservice.dto.response;
+package com.tech_centriq.routesservice.dto.response.route;
 
 import com.tech_centriq.routesservice.entity.RouteEntity;
 import lombok.AllArgsConstructor;
