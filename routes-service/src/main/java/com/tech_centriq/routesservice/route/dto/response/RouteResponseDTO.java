@@ -1,15 +1,13 @@
 package com.tech_centriq.routesservice.route.dto.response;
 
 import com.tech_centriq.routesservice.route.entity.RouteEntity;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class RouteResponseDTO {
 
     private static RouteEntity routeEntity;
@@ -26,21 +24,18 @@ public class RouteResponseDTO {
 
     public static RouteResponseDTO responseDTO(RouteEntity routeEntity) {
 
-        RouteResponseDTO dto = new RouteResponseDTO();
+        return RouteResponseDTO.builder()
+                .id(routeEntity.getId())
+                .routeCode(routeEntity.getRouteCode())
+                .routeName(routeEntity.getRouteName())
+                .startLocation(routeEntity.getStartLocation())
+                .endLocation(routeEntity.getStartLocation())
+                .distanceInKM(routeEntity.getDistanceInKM())
+                .estimatedDurationInMinutes(routeEntity.getEstimatedDurationInMinutes())
+                .status(routeEntity.getStatus().name())
+                .isActive(routeEntity.getIsActive())
+                .build();
 
-        dto.setId(routeEntity.getId());
-        dto.setRouteCode(routeEntity.getRouteCode());
-        dto.setRouteName(routeEntity.getRouteName());
-        dto.setStartLocation(routeEntity.getStartLocation());
-        dto.setEndLocation(routeEntity.getEndLocation());
-        dto.setDistanceInKM(routeEntity.getDistanceInKM());
-        dto.setEstimatedDurationInMinutes(routeEntity.getEstimatedDurationInMinutes());
-
-        RouteResponseDTO.routeEntity = routeEntity;
-        dto.setStatus(routeEntity.getStatus().name());
-        dto.setIsActive(routeEntity.getIsActive());
-
-        return dto;
     }
 
 }

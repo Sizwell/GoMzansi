@@ -15,6 +15,7 @@
         <module>employee-service</module>
         <module>bus-service</module>
         <module>routes-service</module>
+        <module>trip-service</module>
     </modules>
 
     <groupId>com.tech_centriq</groupId>
