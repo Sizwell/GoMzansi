@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface TripRepository extends JpaRepository<TripEntity, Integer> {
+public interface TripRepository extends JpaRepository<TripEntity, Long> {
 
     boolean existsByTripCode(String tripCode);
 

@@ -31,7 +31,7 @@ public class TripController {
 
     @Operation(summary = "Get trip by Id")
     @GetMapping("/{id}")
-    public ResponseEntity<TripResponseDTO> getTrip(@PathVariable Integer id) {
+    public ResponseEntity<TripResponseDTO> getTrip(@PathVariable Long id) {
 
         return ResponseEntity.ok(tripService.getTripById(id));
     }
@@ -46,14 +46,14 @@ public class TripController {
     @Operation(summary = "Update Active trip")
     @PutMapping("/{id}")
     public ResponseEntity<TripResponseDTO> updateTrip(
-            @PathVariable Integer id, @RequestBody UpdateTripRequestDTO updateTripRequestDTO) {
+            @PathVariable Long id, @RequestBody UpdateTripRequestDTO updateTripRequestDTO) {
 
         return ResponseEntity.ok(tripService.updateTrip(id, updateTripRequestDTO));
     }
 
     @Operation(summary = "Deactivate Trip")
     @DeleteMapping("/{id}")
-    public ResponseEntity<TripResponseDTO> deleteTrip(@PathVariable Integer id) {
+    public ResponseEntity<TripResponseDTO> deleteTrip(@PathVariable Long id) {
 
         tripService.deleteTrip(id);
 
@@ -62,7 +62,7 @@ public class TripController {
 
     @Operation(summary = "Reactivate Trip")
     @PatchMapping("/{id}/reactivate")
-    public ResponseEntity<TripResponseDTO> reactivateTrip(@PathVariable Integer id) {
+    public ResponseEntity<TripResponseDTO> reactivateTrip(@PathVariable Long id) {
 
         return ResponseEntity.ok(tripService.reactivateTrip(id));
     }

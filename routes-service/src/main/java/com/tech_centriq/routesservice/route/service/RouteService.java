@@ -9,6 +9,7 @@ import com.tech_centriq.routesservice.route.enums.RouteStatus;
 import com.tech_centriq.routesservice.route.repository.RouteRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import org.jspecify.annotations.Nullable;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -155,4 +156,11 @@ public class RouteService {
         throw new RuntimeException("No available Route Codes");
     }
 
+    public RouteResponseDTO getRouteByRouteCode(String routeCode) {
+
+        RouteEntity routeEntity = routeRepository.findByRouteCode(routeCode)
+                .orElseThrow(() -> new RuntimeException("Route not found"));
+
+        return RouteResponseDTO.responseDTO(routeEntity);
+    }
 }

@@ -1,4 +1,4 @@
-package com.tech_centriq.routesservice.route.controller;
+package com.tech_centriq.routesservice.busStop.controller;
 
 import com.tech_centriq.routesservice.busStop.dto.request.BusStopStatusRequestDTO;
 import com.tech_centriq.routesservice.busStop.dto.request.CreateBusStopRequestDTO;

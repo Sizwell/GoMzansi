@@ -1,4 +1,4 @@
-package com.tech_centriq.routesservice.busStop.controller;
+package com.tech_centriq.routesservice.route.controller;
 
 import com.tech_centriq.routesservice.route.dto.request.CreateRouteRequestDTO;
 import com.tech_centriq.routesservice.route.dto.request.UpdateRouteRequestDTO;
@@ -91,5 +91,13 @@ public class RouteController {
         return ResponseEntity
                 .noContent()
                 .build();
+    }
+
+    @GetMapping("/{routeCode}")
+    public ResponseEntity<RouteResponseDTO> getRouteByRouteCode(@PathVariable String routeCode) {
+
+        return ResponseEntity.ok(
+                routeService.getRouteByRouteCode(routeCode)
+        );
     }
 }

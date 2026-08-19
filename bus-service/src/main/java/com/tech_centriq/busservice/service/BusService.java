@@ -8,6 +8,7 @@ import com.tech_centriq.busservice.enums.BusStatus;
 import com.tech_centriq.busservice.repository.BusRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import org.jspecify.annotations.Nullable;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -145,4 +146,12 @@ public class BusService {
         busRepository.save(busEntity);
     }
 
+    public BusResponseDTO getBusByNumber(String busNumber) {
+
+        BusEntity busEntity = busRepository.findByBusNumber(busNumber)
+                .orElseThrow(() -> new RuntimeException("Bus " + busNumber + " not found")
+                );
+
+        return BusResponseDTO.responseDTO(busEntity);
+    }
 }

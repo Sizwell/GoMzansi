@@ -77,4 +77,13 @@ public class BusController {
                 .build();
     }
 
+    @GetMapping("/number/{busNumber}")
+    public ResponseEntity<BusResponseDTO> getBusByNumber(@PathVariable String busNumber) {
+
+        return ResponseEntity.ok(
+                busService.getBusByNumber(busNumber)
+        );
+
+    }
+
 }
