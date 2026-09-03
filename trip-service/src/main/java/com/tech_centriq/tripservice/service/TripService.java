@@ -1,5 +1,6 @@
 package com.tech_centriq.tripservice.service;
 
+import com.tech_centriq.common.exception.ResourceNotFoundException;
 import com.tech_centriq.tripservice.client.bus.BusClient;
 import com.tech_centriq.tripservice.client.bus.BusValidationResponseDTO;
 import com.tech_centriq.tripservice.client.driver.DriverClient;
@@ -119,7 +120,7 @@ public class TripService {
     @Transactional
     public TripResponseDTO reactivateTrip(Long id) {
         TripEntity trip = tripRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Trip not found"));
+                .orElseThrow(() -> new ResourceNotFoundException("Trip with id: " + id + " not found"));
 
         if (trip.getIsActive()) {
             throw new RuntimeException("Trip already active.");
